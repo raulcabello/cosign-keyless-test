@@ -29,4 +29,5 @@ jobs:
         uses: docker/build-push-action@v2.7.0
         with:
           push: true
+          build-args: VERSION=${{ env.TAG_NAME }}
           tags: ghcr.io/raulcabello/cosign-keyless-test:${{ env.TAG_NAME }}
