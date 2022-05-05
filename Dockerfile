@@ -1,0 +1,1 @@
+FROM rancher/pause:3.6
