@@ -31,3 +31,12 @@ jobs:
           push: true
           build-args: VERSION=${{ env.TAG_NAME }}
           tags: ghcr.io/raulcabello/cosign-keyless-test:${{ env.TAG_NAME }}
+
+      - uses: sigstore/cosign-installer@main
+
+      - name: Sign the images
+        run: |
+          cosign sign \
+            ghcr.io/raulcabello/cosign-keyless-test:${{ env.TAG_NAME }}
+        env:
+          COSIGN_EXPERIMENTAL: 1
